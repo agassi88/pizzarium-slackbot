@@ -1,0 +1,23 @@
+{
+  "name": "pizzarium-slackbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agassi88/pizzarium-slackbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agassi88/pizzarium-slackbot/issues"
+  },
+  "homepage": "https://github.com/agassi88/pizzarium-slackbot#readme",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "node-slackbot": "0.0.6"
+  }
+}
