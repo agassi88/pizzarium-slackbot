@@ -4,6 +4,7 @@
 set -x	#echo on
 
 sudo locale-gen utf-8
+sudo timedatectl set-timezone Europe/Kiev
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install -y mc
