@@ -4,49 +4,56 @@ module.exports = {
 	onMessage: onMessage
 };
 
-// заказ!
-// хочу название пиццы 1 (заказчик - отправитель сообщения)
-// хочу название пиццы 2 (заказчик - отправитель сообщения)
-// все!
-
 var pizzas = [];
 var total = 0;
 var valueAdded = 0;
-var fixedDiscount = 10;
-var pizzaOfTheWeekDiscount = 20;
+var discount = 10;
+
+function pizza (name, priceS, priceM, priceL) {
+	this.name = name;
+	this.priceS = priceS;
+	this.priceM = priceM;
+	this.priceL = priceL;
+	}
+}
+
+var hawaiian = new pizza('Гавайская', 60, 100, 165);
+var neapolitan = new pizza('Неаполитанская', 55, 95, 150);
+var bavarian = new pizza('Баварская', 70, 120, 195);
+
+
 
 function onMessage (message) {
 	if (message.text === '!заказ') {
-		onStart(message);
+		return onStart(message);
 	} else if (_.startsWith(message.text, '!хочу')) {
-		onPizza(message);
-	} else if (message.text === '!все') {
-		onEnd(message);
+		return onPizza(message);
+	} else if (message.text === '!всё') {
+		return onEnd(message);
 	}
 }
 
 function onStart (message) {
-	chat.sendMessage(testchannel-pizzarium, 'Начинаю заказ. Учитываю скидку 10% на всё меню и 20% на пиццу недели');
-	//TODO: парсить пиццу недели, вывод по команде  getPizzaOfTheWeek
+	return 'Начинаю собирать заказы.\nЧтобы совершить заказ, напишите \t!хочу баварскую S, M или L\nЧтобы закончить заказ, напишите \t!всё';
 }
 
 function onPizza (message) {
-	
+	//TODO: парсить пиццу недели
+	return 'pepyaka';
 	total += valueAdded;
 }
 
 function onEnd (message) {
+	return 'testchannel-pizzarium', 'Учитываю скидку 10% на всё меню. 20% скидку на пиццу недели пока не умею.\n ПОДСЧЁТ';	//TODO
 }
 
 
 
 /* TODO:
- - вводить размер, стоимость?
- - кейсы, которые нужно реализовать позднее:
- - парсить скидку 20%
  - 4+1: если 4 человека, то. если 5 человек, то. если 6, то.
  - если 2 пиццы, то выбираем напиток.
  - пополам если два человека заказывают
  getPizzasPrice
  getPizzaOfTheWeek
+ db with pizzas
  */
