@@ -7,8 +7,7 @@ bot.use(function (message, cb) {
 	if ('message' == message.type) {
 		var result = pizzarium.onMessage(message);
 		if (result) {
-			var userSaid = message.user + ' said: ' + message.text;
-			bot.sendMessage(message.channel, userSaid);
+			bot.sendMessage(message.channel, result); //TODO явно указать канал, потому что могут писать в личку
 		}
 	}
 	cb();
